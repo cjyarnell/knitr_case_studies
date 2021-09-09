@@ -21,6 +21,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment=NA)
 knitr::opts_knit$set(global.par = TRUE)
+setwd("C:/Git/knitr_case_studies/gaussian_processes")
 ```
 
 Gaussian processes are a powerful approach for modeling functional behavior, but
@@ -1714,13 +1715,13 @@ c_dark <- c("#8F2727")
 c_dark_highlight <- c("#7C0000")
 
 lambda <- seq(0, 25, 0.001)
-dens <- lapply(lambda, function(l) dgamma(1 / l, 4.6, rate=22.1) * (1 / l**2))
+dens <- lapply(lambda, function(l) dgamma(1 / l, 4, rate=10) * (1 / l**2))
 plot(lambda, dens, type="l", col=c_dark_highlight, lwd=2,
      xlab="lambda", ylab="Prior Density", yaxt='n')
 
-lambda98 <- seq(2, 20, 0.001)
-dens <- lapply(lambda98, function(l) dgamma(1 / l, 4.6, rate=22.1) * (1 / l**2))
-lambda98 <- c(lambda98, 20, 2)
+lambda98 <- seq(1, 12, 0.001)
+dens <- lapply(lambda98, function(l) dgamma(1 / l, 4, rate=10) * (1 / l**2))
+lambda98 <- c(lambda98, 12, 1)
 dens <- c(dens, 0, 0)
 
 polygon(lambda98, dens, col=c_dark, border=NA)
